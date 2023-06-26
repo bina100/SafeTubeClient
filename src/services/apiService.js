@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const API_URL = "http://localhost:8800/api"
+export const API_URL = "https://safetubeserver.onrender.com/api"
 export const TOKEN_NAME = "token"
 export const ADMIN ="safeTubeAdmin"
 export const doApiGet = async(_url) => {

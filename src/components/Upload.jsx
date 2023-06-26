@@ -137,7 +137,7 @@ export const Upload = ({ setOpen }) => {
   const handleUpload = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "http://localhost:8800/api/videos",
+      "https://safetubeserver.onrender.com/api/videos",
       {
         data: {
           ...inputs,
