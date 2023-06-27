@@ -44,7 +44,7 @@ const History = () => {
             <Card key={video._id} video={video} />
           )}
         </>
-      ) : <H1>You have no history</H1>}
+      ) : <H1>No history</H1>}
     </Container>
   );
 };
