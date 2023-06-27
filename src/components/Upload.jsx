@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../services/apiService";
 
 import styled from "styled-components";
 import axios from "axios";
@@ -137,7 +138,7 @@ export const Upload = ({ setOpen }) => {
   const handleUpload = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "https://safetubeserver.onrender.com/api/videos",
+      `${API_URL}/videos`,
       {
         data: {
           ...inputs,
