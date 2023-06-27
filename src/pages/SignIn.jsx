@@ -50,6 +50,7 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   padding: 10px 20px;
+  margin: 4px 0px;
   background: ${({ theme }) => theme.soft};
   color: ${({ theme }) => theme.textSoft};
 `;

@@ -162,12 +162,27 @@ const Video = () => {
         );
         setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
+        addToHistory()
       } catch (err) {
         dispatch(fetchFailure());
       }
     };
     fetchData();
   }, [path, dispatch]);
+
+const addToHistory =async()=>{
+  await axios.patch(
+    `${API_URL}/users/history`,
+    {
+      history: currentVideo._id,
+    },
+    {
+      headers: {
+        "x-api-key": token,
+      },
+    }
+  );
+}
 
   const handleLike = async () => {
     await axios.put(

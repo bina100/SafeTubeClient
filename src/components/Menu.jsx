@@ -126,10 +126,15 @@ const Menu = ({ darkMode, setDarkMode }) => {
           <VideoLibraryIcon />
           Library
         </Item> */}
+         <Link
+          to="history"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
         <Item>
           <HistoryOutlinedIcon />
           History
         </Item>
+        </Link>
         <Hr />
         {!currentUser && (
           <>

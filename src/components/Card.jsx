@@ -9,6 +9,7 @@ const Container = styled.div`
   /* width: 360px; */
   /* width: 31%; */
   width: ${(props) => props.type !== "sm" && "31%"};
+  margin: 0px 1%;
   margin-bottom: ${(props) => (props.type === "sm" ? "10px" : "24px")};
   cursor: pointer;
   @media (max-width: 768px) {
@@ -70,14 +71,7 @@ const Info = styled.div`
   color: ${({ theme }) => theme.textSoft};
 `;
 const Card = ({ type, video }) => {
-  const [channel, setChannel] = useState({});
-  useEffect(() => {
-    const fetchChannel = async () => {
-      const res = await axios.get(`${API_URL}/users/find/${video.userId}`);
-      setChannel(res.data);
-    };
-    fetchChannel();
-  }, [video.userId]);
+  
   return (
     <Container type={type}>
       <Link to={`/video/${video._id}`} style={{ textDecoration: "none" }}>
@@ -85,11 +79,9 @@ const Card = ({ type, video }) => {
           <Image src={video.imgUrl} type={type} />
           <Details type={type}>
             <ChannelImage type={type} src={video.channelImg} />
-            {/* <ChannelImage type={type} src={channel.img} /> */}
             <Texts>
               <Title>{video.title}</Title>
               <ChannelName>{video.channelTitle}</ChannelName>
-              {/* <ChannelName>{channel.name}</ChannelName> */}
               <Info>
                 {/* {video.views} views -  */}
                 {format(video.createdAt)}

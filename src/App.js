@@ -11,6 +11,7 @@ import Search from "./pages/Search";
 import AdminHome from "./pages/AdminHome";
 import PageNotFound from "./pages/PageNotFound";
 import UsersList from "./pages/UsersList";
+import History from "./components/History";
 
 const Container = styled.div`
   display: flex;
@@ -27,7 +28,7 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <ThemeProvider theme={darkMode ? darkTeme : lightTeme}>
@@ -51,6 +52,7 @@ function App() {
                   <Route path="tags_recipe" element={<Home type="tags/?tags=recipe" />} />
                   <Route path="tags_company" element={<Home type="tags/?tags=company" />} />
                   <Route path="subscriptions" element={<Home type="sub" />} />
+                  <Route path="history" element={<History/>} />
                   <Route path="search" element={<Search />} />
                   <Route path="signin" element={<SignIn />} />
                   <Route path="video">

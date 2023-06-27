@@ -6,7 +6,7 @@ import { API_URL } from "../services/apiService";
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 `;
 
