@@ -38,6 +38,27 @@ export default function SelectTags({ setTags }) {
       background: "red",
     }),
   };
+  
+  const customStyles = {
+    control: (provided, state) => ({
+      ...provided,
+      border: '1px solid gray',
+      borderRadius: '4px',
+      color: 'white',
+      boxShadow: state.isFocused ? '0 0 0 2px lightblue' : 'none',
+      '&:hover': {
+        border: '1px solid lightblue',
+      },
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      background: state.isSelected ? 'lightblue' : 'white',
+      color: state.isSelected ? 'black' : 'gray',
+      '&:hover': {
+        background: 'lightblue',
+      },
+    }),
+  };
 
   return (
     <DivSelect>
@@ -48,7 +69,9 @@ export default function SelectTags({ setTags }) {
         onChange={handleSelect}
         isSearchable={true}
         isMulti
-        styles={styles}
+        // styles={styles}
+        styles={customStyles}
+
       />
     </DivSelect>
   );

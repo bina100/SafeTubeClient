@@ -65,6 +65,10 @@ const ChannelName = styled.h3`
   font-size: 14px;
   color: ${({ theme }) => theme.textSoft};
   margin: 4px 0px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 const Info = styled.div`
   font-size: 14px;

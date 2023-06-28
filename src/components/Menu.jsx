@@ -7,12 +7,12 @@ import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
 import CastConnectedOutlinedIcon from "@mui/icons-material/CastConnectedOutlined";
-import IntegrationInstructionsOutlinedIcon from '@mui/icons-material/IntegrationInstructionsOutlined';
-import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
-import LandscapeOutlinedIcon from '@mui/icons-material/LandscapeOutlined';
-import CastForEducationOutlinedIcon from '@mui/icons-material/CastForEducationOutlined';
-import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
-
+import IntegrationInstructionsOutlinedIcon from "@mui/icons-material/IntegrationInstructionsOutlined";
+import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
+import LandscapeOutlinedIcon from "@mui/icons-material/LandscapeOutlined";
+import CastForEducationOutlinedIcon from "@mui/icons-material/CastForEducationOutlined";
+import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
+import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
 import LibraryMusicOutlinedIcon from "@mui/icons-material/LibraryMusicOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import SportsBasketballOutlinedIcon from "@mui/icons-material/SportsBasketballOutlined";
@@ -55,7 +55,7 @@ const Item = styled.div`
   align-items: center;
   gap: 20px;
   cursor: pointer;
-  padding: 2px 0px;
+  padding: 3px 0px;
 
   &:hover {
     background: ${({ theme }) => theme.soft};
@@ -63,7 +63,7 @@ const Item = styled.div`
 `;
 const Hr = styled.hr`
   margin: 4px 0px;
-  border: 0.5px solid ${({ theme }) => theme.soft};
+  border: 1px solid ${({ theme }) => theme.soft};
 `;
 const Login = styled.div`
   font-size: 10px;
@@ -126,14 +126,11 @@ const Menu = ({ darkMode, setDarkMode }) => {
           <VideoLibraryIcon />
           Library
         </Item> */}
-         <Link
-          to="history"
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-        <Item>
-          <HistoryOutlinedIcon />
-          History
-        </Item>
+        <Link to="history" style={{ textDecoration: "none", color: "inherit" }}>
+          <Item>
+            <HistoryOutlinedIcon />
+            History
+          </Item>
         </Link>
         <Hr />
         {!currentUser && (
@@ -149,7 +146,6 @@ const Menu = ({ darkMode, setDarkMode }) => {
             <Hr />
           </>
         )}
-        <Title>BEST OF SafeTube</Title>
         <Link
           to="tags_study"
           style={{ textDecoration: "none", color: "inherit" }}
@@ -222,21 +218,31 @@ const Menu = ({ darkMode, setDarkMode }) => {
             Company
           </Item>
         </Link>
-       
-       
         <Hr />
         <Item>
           <SettingsOutlinedIcon />
           Settings
         </Item>
-        <Item>
-          <FlagOutlinedIcon />
-          Report
-        </Item>
-        <Item>
-          <HelpOutlineIcon />
-          Help
-        </Item>
+        <Link
+          to="https://support.google.com/youtube/?hl=en#topic=9257498"
+          target="blank"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <Item>
+            <HelpOutlineIcon />
+            Help
+          </Item>
+        </Link>
+        <Link
+          to="feedback"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <Item>
+            <FeedbackOutlinedIcon />
+            Feedback
+          </Item>
+        </Link>
+        <Hr />
         <Item onClick={() => setDarkMode(!darkMode)}>
           <SettingsBrightnessOutlinedIcon />
           {darkMode ? "Light " : "Dark"} Mode

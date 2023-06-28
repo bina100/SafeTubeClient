@@ -12,12 +12,13 @@ import AdminHome from "./pages/AdminHome";
 import PageNotFound from "./pages/PageNotFound";
 import UsersList from "./pages/UsersList";
 import History from "./components/History";
+import Feedback from "./pages/Feedback";
 
 const Container = styled.div`
   display: flex;
 `;
 const Main = styled.div`
-  flex: 7;
+  flex: 5;
   background: ${({ theme }) => theme.bg};
 `;
 const Wrapper = styled.div`
@@ -54,7 +55,9 @@ function App() {
                   <Route path="subscriptions" element={<Home type="sub" />} />
                   <Route path="history" element={<History/>} />
                   <Route path="search" element={<Search />} />
+                  <Route path="feedback" element={<Feedback />} />
                   <Route path="signin" element={<SignIn />} />
+
                   <Route path="video">
                     <Route path=":id" element={<Video />} />
                   </Route>
