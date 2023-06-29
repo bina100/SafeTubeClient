@@ -8,7 +8,7 @@ import { API_URL } from "../services/apiService";
 const Container = styled.div`
   /* width: 360px; */
   /* width: 31%; */
-  width: ${(props) => props.type !== "sm" && "31%"};
+  width: ${(props) => props.type !== "sm" && "30%"};
   margin: 0px 1%;
   margin-bottom: ${(props) => (props.type === "sm" ? "10px" : "24px")};
   cursor: pointer;
