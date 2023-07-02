@@ -13,18 +13,23 @@ import PageNotFound from "./pages/PageNotFound";
 import UsersList from "./pages/UsersList";
 import History from "./components/History";
 import Feedback from "./pages/Feedback";
+import Sidebar from "./components/Sidebar";
 
 const Container = styled.div`
   display: flex;
+  width: 100%;
+  overflow-x: hidden;
 `;
 const Main = styled.div`
+  width: 90%;
+  padding: 4px;
   flex: 5;
   background: ${({ theme }) => theme.bg};
 `;
 const Wrapper = styled.div`
   padding: 12px 10px;
   @media (max-width: 768px) {
-    padding: 5px;
+    padding: 5px 0px;
   }
 `;
 
@@ -35,7 +40,8 @@ function App() {
     <ThemeProvider theme={darkMode ? darkTeme : lightTeme}>
       <Container>
         <BrowserRouter>
-          <Menu darkMode={darkMode} setDarkMode={setDarkMode} />
+          {/* <Menu darkMode={darkMode} setDarkMode={setDarkMode} /> */}
+          <Sidebar darkMode={darkMode} setDarkMode={setDarkMode} />
           <Main>
             <Navbar />
             <Wrapper>
@@ -53,7 +59,7 @@ function App() {
                   <Route path="tags_recipe" element={<Home type="tags/?tags=recipe" />} />
                   <Route path="tags_company" element={<Home type="tags/?tags=company" />} />
                   <Route path="subscriptions" element={<Home type="sub" />} />
-                  <Route path="history" element={<History/>} />
+                  <Route path="history" element={<History />} />
                   <Route path="search" element={<Search />} />
                   <Route path="feedback" element={<Feedback />} />
                   <Route path="signin" element={<SignIn />} />
@@ -62,13 +68,13 @@ function App() {
                     <Route path=":id" element={<Video />} />
                   </Route>
                 </Route>
-                
+
                 <Route>
-                <Route path="/admin" element={<SignIn />} />
-                <Route path="/admin/home" element={<AdminHome />} />
-                <Route path="/admin/users" element={<UsersList />} />
-                <Route path="/404" element={<PageNotFound />} />
-                <Route path="*" element={<Navigate to="/404"/>} />
+                  <Route path="/admin" element={<SignIn />} />
+                  <Route path="/admin/home" element={<AdminHome />} />
+                  <Route path="/admin/users" element={<UsersList />} />
+                  <Route path="/404" element={<PageNotFound />} />
+                  <Route path="*" element={<Navigate to="/404" />} />
                 </Route>
               </Routes>
             </Wrapper>

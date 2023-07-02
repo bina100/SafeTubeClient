@@ -36,15 +36,14 @@ const Content = styled.div`
   }
 `;
 const VideoWrapper = styled.div``;
-const Iframe = styled.iframe`
+const StyledYouTube = styled(YouTube)`
   width: 100%;
   max-height: 600px;
   cursor: pointer;
-  @media (max-width: 990px) {
-    height: 400px;
-  }
-  @media (max-width: 768px) {
-    height: 300px;
+  @media (max-width: 480px) {
+    iframe {
+      width: 80vw;
+    }
   }
 `;
 
@@ -54,6 +53,12 @@ const Title = styled.h2`
   margin-top: 20px;
   margin-bottom: 10px;
   color: ${({ theme }) => theme.text};
+  @media (max-width: 480px) {
+    width: 85vw;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
 `;
 const Details = styled.div`
   display: flex;
@@ -66,6 +71,10 @@ const Details = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
+  }
+  @media (max-width: 480px) {
+    width: 80%;
+    margin-top: 20px;
   }
 `;
 const Info = styled.span`
@@ -95,6 +104,11 @@ const Channel = styled.div`
 const ChannelInfo = styled.div`
   display: flex;
   gap: 20px;
+
+  @media (max-width: 480px) {
+    gap: 0px;
+    flex-direction: column;
+  }
 `;
 const Image = styled.img`
   width: 50px;
@@ -105,6 +119,9 @@ const ChannelDetail = styled.div`
   display: flex;
   flex-direction: column;
   color: ${({ theme }) => theme.text};
+  @media (max-width: 480px) {
+    width: 80%;
+  }
 `;
 const ChannelName = styled.span`
   font-weight: 500;
@@ -117,6 +134,10 @@ const ChannelCounter = styled.span`
 `;
 const Description = styled.p`
   font-size: 14px;
+  @media (max-width: 480px) {
+    overflow-x: hidden;
+    width: 80%;
+ }
 `;
 const Subscribe = styled.button`
   background: #cc1a00;
@@ -127,6 +148,11 @@ const Subscribe = styled.button`
   height: max-content;
   padding: 10px 20px;
   cursor: pointer;
+  @media (max-width: 480px) {
+    padding: 10px 12px;
+    position: sticky;
+    right: 8px;
+  }
 `;
 
 const Video = () => {
@@ -162,7 +188,7 @@ const Video = () => {
         );
         setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
-        addToHistory()
+        addToHistory();
       } catch (err) {
         dispatch(fetchFailure());
       }
@@ -170,19 +196,21 @@ const Video = () => {
     fetchData();
   }, [path, dispatch]);
 
-const addToHistory =async()=>{
-  await axios.patch(
-    `${API_URL}/users/history`,
-    {
-      history: currentVideo._id,
-    },
-    {
-      headers: {
-        "x-api-key": token,
-      },
+  const addToHistory = async () => {
+    if (currentUser) {
+      await axios.patch(
+        `${API_URL}/users/history`,
+        {
+          history: currentVideo._id,
+        },
+        {
+          headers: {
+            "x-api-key": token,
+          },
+        }
+      );
     }
-  );
-}
+  };
 
   const handleLike = async () => {
     await axios.put(
@@ -246,7 +274,7 @@ const addToHistory =async()=>{
       {currentVideo ? (
         <Content>
           <VideoWrapper>
-            <YouTube videoId={currentVideo.videoUrl} opts={opts} />
+            <StyledYouTube videoId={currentVideo.videoUrl} opts={opts} />
           </VideoWrapper>
           <Title>{currentVideo.title}</Title>
           <Details>
