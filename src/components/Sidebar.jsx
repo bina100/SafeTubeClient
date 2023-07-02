@@ -27,14 +27,14 @@ import { useSelector } from "react-redux";
 const Container = styled.div`
   flex: 1;
   background: ${({ theme }) => theme.bgLighter};
-  /* height: 100vh; */
   min-height: 100vh;
   color: ${({ theme }) => theme.text};
   font-size: 14px;
   position: sticky;
   top: 0;
+  left: 0;
   @media (max-width: 480px) {
-    flex: 0.5;
+    flex: 0.75;
   }
 `;
 
@@ -42,6 +42,7 @@ const Wrapper = styled.div`
   padding: 8px 16px;
   @media (max-width: 480px) {
     padding: 8px 4px;
+    position: fixed;
   }
 `;
 
@@ -66,6 +67,10 @@ const Item = styled.div`
 
   &:hover {
     background: ${({ theme }) => theme.soft};
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px 0px;
   }
 `;
 const Hr = styled.hr`

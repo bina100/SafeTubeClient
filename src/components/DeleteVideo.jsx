@@ -28,6 +28,9 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 20px;
   position: relative;
+  @media (max-width: 480px) {
+    width: 90%;
+  }
 `;
 const Close = styled.div`
   position: absolute;

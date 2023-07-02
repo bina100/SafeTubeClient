@@ -27,6 +27,9 @@ const Wrapper = styled.div`
   padding: 12px 50px;
   gap: 8px;
   width: 50%;
+  @media (max-width: 480px) {
+    width: 90%;
+  }
 `;
 const Form = styled.form`
   text-align: center;

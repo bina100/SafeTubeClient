@@ -13,8 +13,13 @@ import { logout } from "../redux/userSlice";
 const Container = styled.div`
   position: sticky;
   top: 0;
+  left: 0;
   background: ${({ theme }) => theme.bgLighter};
   height: 56px;
+   @media (max-width: 480px) {
+    position: sticky;
+    width: 100%;
+  }
 `;
 const Wrapper = styled.div`
   display: flex;

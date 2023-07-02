@@ -42,7 +42,7 @@ const StyledYouTube = styled(YouTube)`
   cursor: pointer;
   @media (max-width: 480px) {
     iframe {
-      width: 80vw;
+      width: 90vw;
     }
   }
 `;
