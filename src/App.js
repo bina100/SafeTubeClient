@@ -18,7 +18,9 @@ import Sidebar from "./components/Sidebar";
 const Container = styled.div`
   display: flex;
   width: 100%;
+  /* @media (max-width: 480px) {
   overflow-x: hidden;
+  } */
 `;
 const Main = styled.div`
   width: 90%;
@@ -30,6 +32,7 @@ const Wrapper = styled.div`
   padding: 12px 10px;
   @media (max-width: 768px) {
     padding: 5px 0px;
+    overflow-x: hidden;
   }
 `;
 

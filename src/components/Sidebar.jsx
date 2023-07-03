@@ -30,9 +30,6 @@ const Container = styled.div`
   min-height: 100vh;
   color: ${({ theme }) => theme.text};
   font-size: 14px;
-  position: sticky;
-  top: 0;
-  left: 0;
   @media (max-width: 480px) {
     flex: 0.75;
   }
@@ -40,6 +37,9 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   padding: 8px 16px;
+  position: sticky;
+  top: 0;
+  left: 0;
   @media (max-width: 480px) {
     padding: 8px 4px;
     position: fixed;
