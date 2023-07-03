@@ -188,7 +188,7 @@ const Video = () => {
         );
         setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
-        addToHistory();
+        addToHistory(videoRes.data._id);
       } catch (err) {
         dispatch(fetchFailure());
       }
@@ -196,12 +196,12 @@ const Video = () => {
     fetchData();
   }, [path, dispatch]);
 
-  const addToHistory = async () => {
+  const addToHistory = async (_id) => {
     if (currentUser) {
       await axios.patch(
         `${API_URL}/users/history`,
         {
-          history: currentVideo._id,
+          history: _id,
         },
         {
           headers: {
